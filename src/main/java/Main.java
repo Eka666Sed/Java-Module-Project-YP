@@ -21,9 +21,10 @@ public class Main {
 
             if (i > 1) {
                 ProductAndPrice.calculate();
-                double curr = ProductAndPrice.getCurretnPrice();
+                //double totalprice = ProductAndPrice.getCurretnPrice();
+
                 //v1
-                calculatorBill.calc(curr,i);
+                calculatorBill.calc(ProductAndPrice.totalPrice,i);
                 //v2
                 //calculatorBill.calc(ProductAndPrice.getCurretnPrice(),i);
                 break;
