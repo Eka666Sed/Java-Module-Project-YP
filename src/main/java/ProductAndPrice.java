@@ -1,12 +1,10 @@
 import java.util.Scanner;
 
 class ProductAndPrice {
-    //total price - class field
     public double totalPrice = 0.00;
 
     public void calculate() {
         Scanner scanner = new Scanner(System.in);
-
         String bill = "";
         String stop = "Завершить";
 
@@ -15,10 +13,10 @@ class ProductAndPrice {
             String productName = scanner.next();
             System.out.println("Введите стоимость товара (стоимость должна быть в формате XX.XX (рубли.копейки)):");
             double price = scanner.nextDouble();
-            //проверяем цену
+
             while (price<=0)
             {
-                System.out.println("стоимость должна быть больше 0");
+                System.out.println("Стоимость должна быть больше 0.");
                 price = scanner.nextDouble();
             }
 
@@ -35,9 +33,8 @@ class ProductAndPrice {
 
         }
         System.out.println("Добавленные товары:" + "\n" + bill);
-        //System.out.println("totalPrice:" + TotalPrice);
     }
-    public double getCurretnPrice() {
-        return totalPrice;
-    }
+    //public double getCurretnPrice() {
+        //return totalPrice;
+   // }
 }
