@@ -17,21 +17,31 @@ public class Main {
 
         while (true) {
             System.out.println("На сколько человек разделить счет?");
-            int i = scanner.nextInt();
+            //что будет если ввести буквы вместо цифр,
+            String input = scanner.next();
+            try
+            {
 
-            if (i > 1) {
-                ProductAndPrice.calculate();
-                //double totalprice = ProductAndPrice.getCurretnPrice();
+                int i = Integer.parseInt(input);
 
-                //v1
-                calculatorBill.calc(ProductAndPrice.totalPrice,i);
-                //v2
-                //calculatorBill.calc(ProductAndPrice.getCurretnPrice(),i);
-                break;
+                if (i > 1) {
+                    ProductAndPrice.calculate();
+                    //double totalprice = ProductAndPrice.getCurretnPrice();
+
+                    //v1
+                    calculatorBill.calc(ProductAndPrice.totalPrice, i);
+                    //v2
+                    //calculatorBill.calc(ProductAndPrice.getCurretnPrice(),i);
+                    break;
+                }
+                if (i <= 1) {
+                    System.out.println("Некорректное значение для подсчета.");
+                    continue;
+                }
             }
-            if (i <= 1) {
-                System.out.println("Некорректное значение для подсчета.");
-                continue;
+            catch (Exception exx)
+            {
+                System.out.println("преобразование к числу не получилось! введите еще раз "+ exx.getMessage());
             }
         }
     }

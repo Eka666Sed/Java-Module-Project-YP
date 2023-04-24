@@ -15,16 +15,24 @@ class ProductAndPrice {
             String productName = scanner.next();
             System.out.println("Введите стоимость товара (стоимость должна быть в формате XX.XX (рубли.копейки)):");
             double price = scanner.nextDouble();
-            bill = bill.concat(productName).concat("\n");
-            System.out.println("Товар успешно добавлен в счет.");
-            totalPrice = totalPrice + price;
-            System.out.println("Хотите ли Вы добавить ещё один товар? Для того чтобы завершить процесс добавления товаров,напишите \"Завершить\".");
-            String answer = scanner.next();
+            //проверяем цену
+            while (price<=0)
+            {
+                System.out.println("стоимость должна быть больше 0");
+                price = scanner.nextDouble();
+            }
 
-            if (answer.equalsIgnoreCase(stop)) {
-                break;
-            } else
-                continue;
+                bill = bill.concat(productName).concat("\n");
+                System.out.println("Товар успешно добавлен в счет.");
+                totalPrice = totalPrice + price;
+                System.out.println("Хотите ли Вы добавить ещё один товар? Для того чтобы завершить процесс добавления товаров,напишите \"Завершить\".");
+                String answer = scanner.next();
+
+                if (answer.equalsIgnoreCase(stop)) {
+                    break;
+                } else
+                    continue;
+
         }
         System.out.println("Добавленные товары:" + "\n" + bill);
         //System.out.println("totalPrice:" + TotalPrice);
