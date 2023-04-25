@@ -7,7 +7,6 @@ public class Main {
     public static void main(String[] args)
     {
         Scanner scanner = new Scanner(System.in);
-
         ProductAndPrice ProductAndPrice = new ProductAndPrice();
         CalculatorBill calculatorBill = new CalculatorBill();
 
@@ -17,17 +16,14 @@ public class Main {
 
             try
             {
-                int i = Integer.parseInt(input);
+                int numberPeople = Integer.parseInt(input);
 
-                if (i > 1) {
+                if (numberPeople > 1) {
                     ProductAndPrice.calculate();
-                    calculatorBill.calc(ProductAndPrice.totalPrice, i);
+                    calculatorBill.calc(ProductAndPrice.totalPrice, numberPeople);
                     break;
                 }
-                if (i <= 1) {
                     System.out.println("Некорректное значение для подсчета.");
-                    continue;
-                }
             }
             catch (Exception exx)
             {

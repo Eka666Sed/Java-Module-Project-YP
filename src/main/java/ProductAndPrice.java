@@ -12,14 +12,12 @@ class ProductAndPrice {
             System.out.println("Введите название товара:");
             String productName = scanner.next();
             System.out.println("Введите стоимость товара (стоимость должна быть в формате XX.XX (рубли.копейки)):");
-            double price = scanner.nextDouble();
-
-            while (price<=0)
-            {
-                System.out.println("Стоимость должна быть больше 0.");
-                price = scanner.nextDouble();
-            }
-
+            if (scanner.hasNextDouble()) {
+                double price = scanner.nextDouble();
+                while (price <= 0) {
+                    System.out.println("Стоимость должна быть >0. Введите стоимость товара еще раз.");
+                    price = scanner.nextDouble();
+                }
                 bill = bill.concat(productName).concat("\n");
                 System.out.println("Товар успешно добавлен в счет.");
                 totalPrice = totalPrice + price;
@@ -28,13 +26,13 @@ class ProductAndPrice {
 
                 if (answer.equalsIgnoreCase(stop)) {
                     break;
-                } else
-                    continue;
-
+                }
+            } else {
+                System.out.println("Преобразование к числу не получилось! Введите еще раз.");
+            }
         }
         System.out.println("Добавленные товары:" + "\n" + bill);
-    }
-    //public double getCurretnPrice() {
-        //return totalPrice;
-   // }
-}
+                }
+        }
+
+
