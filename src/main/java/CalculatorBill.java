@@ -7,6 +7,7 @@ class CalculatorBill {
         if (11 <= lastDigit & lastDigit <= 19) {
             rub = "рублей";
             System.out.println("Каждому нужно заплатить: " + String.format("%.2f", payPerPerson) + " " + rub + ".");
+            return;
         }
         int lastDigitTwo = (int) flooredpPp % 10;
         switch (lastDigitTwo) {

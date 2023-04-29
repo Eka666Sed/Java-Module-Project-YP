@@ -32,9 +32,9 @@ class ProductAndPrice {
         while (true) {
             if (scanner.hasNextDouble()) {
                 double price = scanner.nextDouble();
-                while (price <= 0) {
+                if (price <= 0) {
                     System.out.println("Стоимость должна быть >0. Введите стоимость товара еще раз.");
-                    price = scanner.nextDouble();
+                    continue;
                 }
                 return price;
             } else {
